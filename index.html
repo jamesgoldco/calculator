@@ -1071,9 +1071,9 @@
                     <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
                     <span class="logo-text">Exempt Bot</span>
                 </div>
-                <div class="tagline">State Tax Relief for Treasury Investments</div>
-                <h1>Treasury Dividend Tax Exemption Calculator</h1>
-                <div class="subtitle">Precisely identify tax-exempt income from your Treasury securities funds and save thousands in unnecessary state taxes</div>
+                <div class="tagline">State Tax Relief for Treasury Investments alternatives</div>
+                <h1>Treasury Fund State-Tax Benefit Calculator</h1>
+                <div class="subtitle">Precisely identify tax-exempt income from your treasury security funds and save thousands in unnecessary state taxes</div>
                 
                 <div class="stats-bar">
                     <div class="stat">
@@ -1102,13 +1102,47 @@
                 <div id="stateTab" class="tab-content active">
                     <label for="state">State of Residence</label>
                     <select id="state" onchange="updateTaxRate()">
-                        <option value="CA" data-rate="0.093">California (9.3%)</option>
-                        <option value="NY" data-rate="0.0865">New York (8.65%)</option>
-                        <option value="CT" data-rate="0.069">Connecticut (6.9%)</option>
-                        <option value="FL" data-rate="0.0">Florida (0%)</option>
-                        <option value="TX" data-rate="0.0">Texas (0%)</option>
-                        <option value="WA" data-rate="0.0">Washington (0%)</option>
-                        <option value="NV" data-rate="0.0">Nevada (0%)</option>
+                        <option value="AL" data-rate="0.050">Alabama</option>
+                        <option value="AZ" data-rate="0.045">Arizona</option>
+                        <option value="AR" data-rate="0.055">Arkansas</option>
+                        <option value="CA" data-rate="0.093">California</option>
+                        <option value="CO" data-rate="0.044">Colorado</option>
+                        <option value="CT" data-rate="0.069">Connecticut</option>
+                        <option value="DE" data-rate="0.066">Delaware</option>
+                        <option value="GA" data-rate="0.055">Georgia</option>
+                        <option value="HI" data-rate="0.084">Hawaii</option>
+                        <option value="ID" data-rate="0.060">Idaho</option>
+                        <option value="IL" data-rate="0.0495">Illinois</option>
+                        <option value="IN" data-rate="0.032">Indiana</option>
+                        <option value="IA" data-rate="0.085">Iowa</option>
+                        <option value="KS" data-rate="0.057">Kansas</option>
+                        <option value="KY" data-rate="0.050">Kentucky</option>
+                        <option value="LA" data-rate="0.0445">Louisiana</option>
+                        <option value="ME" data-rate="0.0715">Maine</option>
+                        <option value="MD" data-rate="0.0575">Maryland</option>
+                        <option value="MA" data-rate="0.050">Massachusetts</option>
+                        <option value="MI" data-rate="0.0425">Michigan</option>
+                        <option value="MN" data-rate="0.0985">Minnesota</option>
+                        <option value="MS" data-rate="0.050">Mississippi</option>
+                        <option value="MO" data-rate="0.053">Missouri</option>
+                        <option value="MT" data-rate="0.069">Montana</option>
+                        <option value="NE" data-rate="0.0684">Nebraska</option>
+                        <option value="NJ" data-rate="0.1075">New Jersey</option>
+                        <option value="NM" data-rate="0.059">New Mexico</option>
+                        <option value="NY" data-rate="0.109">New York</option>
+                        <option value="NC" data-rate="0.0475">North Carolina</option>
+                        <option value="ND" data-rate="0.029">North Dakota</option>
+                        <option value="OH" data-rate="0.0399">Ohio</option>
+                        <option value="OK" data-rate="0.0475">Oklahoma</option>
+                        <option value="OR" data-rate="0.099">Oregon</option>
+                        <option value="PA" data-rate="0.0307">Pennsylvania</option>
+                        <option value="RI" data-rate="0.0599">Rhode Island</option>
+                        <option value="SC" data-rate="0.070">South Carolina</option>
+                        <option value="UT" data-rate="0.0495">Utah</option>
+                        <option value="VT" data-rate="0.0875">Vermont</option>
+                        <option value="VA" data-rate="0.0575">Virginia</option>
+                        <option value="WV" data-rate="0.065">West Virginia</option>
+                        <option value="WI" data-rate="0.0765">Wisconsin</option>
                         <option value="OTHER">Other (Custom Rate)</option>
                     </select>
                     
@@ -1330,6 +1364,7 @@
         // Display the fund database table when page loads
         document.addEventListener('DOMContentLoaded', function() {
             displayFundDatabase();
+            updateTaxRate(); // Set initial tax rate based on default state
         });
 
         // Display fund database in table
@@ -1717,7 +1752,7 @@
             const select = document.getElementById('state');
             const option = select.options[select.selectedIndex];
             const rate = parseFloat(option.getAttribute('data-rate')) * 100;
-            document.getElementById('taxRate').value = rate;
+            document.getElementById('taxRate').value = rate.toFixed(2);
         }
 
         // Calculate results
